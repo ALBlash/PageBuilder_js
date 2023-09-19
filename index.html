@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>בונה מסכים</title>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>בונה מסך</h1>
+        <p>בשביל שתוכלו ליצור מסמך עליכם להזין <br> פרטים בהתאם לדרישות לתוך האינפוטים</p>
+        <div class="labput-container">
+            <label for="type">סוג האלמנט</label>
+            <select class="select" name="element-type" id="type">
+                <option value="div">div</option>
+                <option value="p">p</option>
+                <option value="span">span</option>
+                <option value="h1">h1</option>
+                <option value="h2">h2</option>
+                <option value="h3">h3</option>
+            </select>
+            <!-- <input type="text" id="type" class="input"> -->
+        </div>
+        <div class="labput-container">
+            <label for="width">צבע רקע</label>
+            <input type="color" id="background-color" class="input">
+        </div>
+        <div class="width-height">
+            <div class="labput-container">
+                <label for="height">גובה</label>
+                <input type="text" id="height" class="input">
+            </div>
+            <div class="labput-container">
+                <label for="height">רוחב</label>
+                <input type="text" id="width" class="input">
+            </div>
+        </div>
+
+        <div class="labput-container">
+            <label for="info">תוכן</label>
+            <textarea name="info" id="content" cols="30" rows="10"></textarea>
+        </div>
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="color">צבע הגופן</label>
+                <input type="color" id="color" class="color">
+            </div>
+
+            <div class="labput-container">
+                <label for="size">גודל הגופן</label>
+                <select class="input2" name="size" id="size">
+                    <!-- from 1 - 40 will be added with JS -->
+                </select>
+            </div>
+        </div>
+
+
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="border-width">עובי מסגרת</label>
+                <input type="text" id="border-width" class="input">
+            </div>
+
+            <div class="labput-container">
+                <label for="border-color">צבע מסגרת</label>
+                <input type="color" id="border-color" class="color">
+            </div>
+        </div>
+
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="padding">ריווח פנימי (padding)</label>
+                <input type="text" id="padding" class="input">
+            </div>
+
+            <div class="labput-container">
+                <label for="margin">ריווח חיצוני (Margin)</label>
+                <input type="text" id="margin" class="input">
+            </div>
+        </div>
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="border-radius">עיגול פינות</label>
+                <input type="text" id="border-radius" class="input">
+            </div>
+
+            <div class="labput-container">
+                <label for="shadow-x">צל [x]</label>
+                <input type="text" id="shadow-x" class="input">
+            </div>
+        </div>
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="shadow-y">צל [y]</label>
+                <input type="text" id="shadow-y" class="input">
+            </div>
+
+            <div class="labput-container">
+                <label for="shadow-color">צבע צל</label>
+                <input type="color" id="border-color" class="color">
+            </div>
+        </div>
+        <div class="color-size">
+            <div class="labput-container">
+                <label for="element-info">מידע אלמנט (title)</label>
+                <input type="text" id="element-info" class="input">
+            </div>
+
+            <div class="labput-container">
+                <label for="element-id">id לאלמנט</label>
+                <input type="text" id="element-id" class="input">
+            </div>
+        </div>
+
+        <div class="labput-container">
+            <label for="type-txt">סוג הגופן</label>
+            <select name="typt-text" id="type-txt" class="select">
+                <option>sans-serif</option>
+                <option>Arial</option>
+                <option>courier</option>
+                <option>verdana</option>
+                <option>cursive</option>
+                <option>fantasy</option>
+            </select>
+        </div>
+
+        <div class="btn-container">
+            <button id="add" class="btn">הוסף</button>
+            <button id="delete" class="btn">למחוק</button>
+            <button id="save" class="btn">שמור</button>
+        </div>
+    </div>
+
+    <div class="screen-background">
+        <div class="screen"></div>
+
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
