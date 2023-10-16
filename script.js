@@ -13,7 +13,7 @@ const margin = document.getElementById('margin');
 const borderRadius = document.getElementById('border-radius');
 const shadowX = document.getElementById('shadow-x');
 const shadowY = document.getElementById('shadow-y');
-const shadowColor = document.getElementById('border-color');
+const shadowColor = document.getElementById('shadow-color');
 const elementTitle = document.getElementById('element-info');
 const elementId = document.getElementById('element-id');
 const textType = document.getElementById('type-txt');
@@ -24,47 +24,30 @@ document.addEventListener('DOMContentLoaded', getPreviousContent())
 
 const addBtn = document.querySelector("#add");
 addBtn.addEventListener("click", function () {
-    const elementType = type.value;
-    const backgroundColorValue = backgroundColor.value;
-    const heightValue = height.value;
-    const widthValue = width.value;
-    const contentValue = content.value;
-    const colorValue = color.value;
-    const sizerValue = size.value;
-    const borderW = borderWidth.value;
-    const borderC = borderColor.value;
-    const pad = padding.value;
-    const marg = margin.value;
-    const borderR = borderRadius.value;
-    const sx = shadowX.value;
-    const sy = shadowY.value;
-    const sc = shadowColor.value;
-    const bShadow = `${sx}px ${sy}px ${sc}`;
-    const title = elementTitle.value;
-    const id = elementId.value;
-    const txtType = textType.value;
+
 
     // Create a new element if the element type is valid
-    const newElement = document.createElement(elementType);
+    const newElement = document.createElement(type.value);
 
     // Set styles and properties of the new element
-    newElement.style.backgroundColor = backgroundColorValue;
-    newElement.style.height = heightValue + "px";
-    newElement.style.width = widthValue + "px";
-    newElement.style.color = colorValue;
-    newElement.style.fontSize = sizerValue + "px";
-    newElement.style.fontFamily = txtType;
-    newElement.textContent = contentValue;
+    newElement.style.backgroundColor = backgroundColor.value;
+    newElement.style.height = height.value + "px";
+    newElement.style.width = width.value + "px";
+    newElement.style.color = color.value;
+    newElement.style.fontSize = size.value + "px";
+    newElement.style.fontFamily = textType.value;
+    newElement.textContent = content.value;
     newElement.style.borderStyle = "solid";
-    newElement.style.borderWidth = `${borderW}px`;
-    newElement.style.borderColor = borderC;
-    newElement.style.padding = pad + "px";
-    newElement.style.margin = marg + "px";
-    newElement.style.borderRadius = borderR + "px";
+    newElement.style.borderWidth = `${borderWidth.value}px`;
+    newElement.style.borderColor = borderColor.value;
+    newElement.style.padding = padding.value + "px";
+    newElement.style.margin = margin.value + "px";
+    newElement.style.borderRadius = borderRadius.value + "px";
+    const bShadow = `${shadowX.value}px ${shadowY.value}px ${shadowColor.value}`;
     newElement.style.boxShadow = bShadow;
     newElement.setAttribute("date-created", `${getTheTime()}`);
-    newElement.setAttribute("data-info", `${title}`);
-    newElement.setAttribute("id", `${id}`);
+    newElement.setAttribute("data-info", `${elementTitle.value}`);
+    newElement.setAttribute("id", `${elementId.value}`);
 
     noStyle(newElement);
     screen.appendChild(newElement);
@@ -83,12 +66,13 @@ for (let i = 1; i <= 40; i++) {
 
 const emptyScreen = document.getElementById('delete');
 emptyScreen.addEventListener('click', () => {
-    const screen = document.querySelector('.screen')
-    while (screen.firstChild) {
-        screen.removeChild(screen.firstChild)
+    if (confirm('Are you sure you want to delete all content?')) {
+        const screen = document.querySelector('.screen');
+        screen.innerHTML = '';
+        localStorage.clear();
     }
-    localStorage.clear()
-})
+});
+
 
 ///////no styling until there is something to style/////
 
@@ -115,8 +99,8 @@ function getTheTime(elem) {
     const minutes = now.getMinutes();
     const seconds = now.getSeconds();
 
-    const formattedDate = `${day}-${month}-${year}`
-    const formattedTime = `${hours}-${minutes}-${seconds}`
+    const formattedDate = `${day}-${month}-${year}`;
+    const formattedTime = `${hours}-${minutes}-${seconds}`;
 
     return `${formattedDate} ${formattedTime}`
 }
@@ -131,7 +115,7 @@ const storedElements = localStorage.getItem('screen-elements');
 if (storedElements) {
     elementsArray = JSON.parse(storedElements);
 }
-
+// saving the elements each into an object and adding them to an array
 saveBtn.addEventListener('click', () => {
     const screen = document.querySelector(".screen");
     const childElements = screen.children;
@@ -200,7 +184,7 @@ function getPreviousContent() {
             newElement.style.borderRadius = elementData.styles.borderRadius;
             newElement.style.boxShadow = elementData.styles.boxShadow;
 
-            // Add any additional attributes as needed
+            // Add any additional attributes
             newElement.setAttribute("data-info", elementData.dataInfo);
             newElement.setAttribute("id", elementData.id);
 
