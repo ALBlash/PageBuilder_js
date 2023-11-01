@@ -110,11 +110,7 @@ function getTheTime(elem) {
 const saveBtn = document.getElementById('save');
 let elementsArray = [];
 
-// Load existing elements from localStorage if any
-const storedElements = localStorage.getItem('screen-elements');
-if (storedElements) {
-    elementsArray = JSON.parse(storedElements);
-}
+
 // saving the elements each into an object and adding them to an array
 saveBtn.addEventListener('click', () => {
     const screen = document.querySelector(".screen");

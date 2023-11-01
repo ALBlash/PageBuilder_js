@@ -82,6 +82,13 @@
         height: 37px;
     }
 
+    .color-shadow {
+        padding: 0;
+        width: 135px;
+        background: content-box;
+        height: 37px;
+    }
+
     .width-height {
         display: flex;
         flex-direction: row;
@@ -103,7 +110,7 @@
     #border-radius,
     #shadow-x,
     #shadow-y,
-    #shadow-color,
+    /* #shadow-color, */
     #element-info,
     #element-id {
         width: 110px;
@@ -231,6 +238,13 @@
     }
 
     .color {
+        padding: 0;
+        width: 135px;
+        background: content-box;
+        height: 37px;
+    }
+
+    .color-shadow {
         padding: 0;
         width: 135px;
         background: content-box;
@@ -381,6 +395,13 @@
     }
 
     .color {
+        padding: 0;
+        width: 135px;
+        background: content-box;
+        height: 37px;
+    }
+
+    .color-shadow {
         padding: 0;
         width: 135px;
         background: content-box;
